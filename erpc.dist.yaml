@@ -38,8 +38,12 @@ database:
         connector: scylladb-cache
         ttl: 0
   #  Cache is disabled by default. You can also disable it by uncommenting the following line
-  #  evmJsonRpcCache: ~ 
+  #  evmJsonRpcCache: ~
 server:
+  cors:
+    enabled: true
+    allowedOrigins:
+      - "*"
   httpHostV4: 0.0.0.0
   httpPortV4: 4000
   # listenV6: false
@@ -204,31 +208,31 @@ rateLimiters:
   budgets:
     - id: global-tenderly
       rules:
-        - method: '*'
+        - method: "*"
           maxCount: 10000
           period: 1s
     - id: global-chainstack
       rules:
-        - method: '*'
+        - method: "*"
           maxCount: 10000
           period: 1s
     - id: global-onfinality
       rules:
-        - method: '*'
+        - method: "*"
           maxCount: 10000
           period: 1s
     - id: default-budget
       rules:
-        - method: '*'
+        - method: "*"
           maxCount: 10000
           period: 1s
     - id: global-blast
       rules:
-        - method: '*'
+        - method: "*"
           maxCount: 1000
           period: 1s
     - id: global-quicknode
       rules:
-        - method: '*'
+        - method: "*"
           maxCount: 300
           period: 1s
